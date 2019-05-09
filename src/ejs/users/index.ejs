@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+
+    <base href="/users/" target="_self" />
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="userIndex">
+      <% include ../partials/message %>
+      <div class="PageHead">
+        <h2><%= title %></h2>
+
+        <nav class="Commands IndexCommands">
+          <a class="Add btn" href="./new" title="Create user">
+            <span>Create user...</span>
+          </a>
+        </nav>
+      </div>
+
+      <table class="table">
+      <caption>All Users</caption>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Name</th>
+          <th class="OptionalColumn">Contact</th>
+          <th class="OptionalColumn">Role</th>
+          <th class="Actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% users.forEach(function(user, i) { %>
+        <tr class="<%= (user.active) ? 'Active' : 'Inactive' %>">
+          <td><span class="Status"></span></td>
+          <td><a href="<%= user.url %>"><%= user.displayName %></a></td>
+          <td class="OptionalColumn"><ul class="list-unstyled m-0" style="white-space: nowrap;">
+            <li><%= user.contact.email %></li>
+            <li><%= user.contact.phone %></li>
+          </ul></td>
+          <td class="OptionalColumn">
+            <%= user.occupation %>
+          </td>
+          <td class="OptionalColumn">
+            <%= user.role; %>
+          </td>
+          <td class="Actions">
+            <form><nav class="Commands RowCommands">
+              <div class="dropdown">
+                <button class="dropdown-toggle More btn" type="button"
+                  aria-haspopup="true" aria-expanded="false"
+                  data-toggle="dropdown">
+                  <span>Manage</span></button>
+                <nav class="dropdown-menu dropdown-menu-right">
+                  <button class="dropdown-item" type="submit" formmethod="GET"
+                    formaction="./edit/<%= user._id %>">
+                    <span>Edit</span></button>
+                  <button class="dropdown-item" type="submit" data-action="delete"
+                    formmethod="POST" formaction="<%= user.url %>?_method=DELETE">
+                    <span>Delete</span></button>
+                </nav>
+              </div>
+            </nav></form>
+          </td>
+      <% }) %>
+      </tbody>
+      </table>
+
+      <% include ../partials/paginate %>
+    </main>
+    <footer></footer>
+    <script src="/js/users~index.bundle.js"></script>
+    <script type="text/javascript">
+      var labels = {
+        'phrase.userDelete': "Are you sure you want to delete this user? He/she will be PERMANENTLY REMOVED!"
+      }
+
+      bundle.init();
+    </script>
+  </body>
+</html>

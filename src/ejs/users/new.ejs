@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="userNew">
+      <% include ../partials/message %>
+      <div class="PageHead">
+        <h2><%= title %></h2>
+      </div>
+
+      <form class="PageForm" action="<%= './' + action %>" method="post">
+        <% include fieldsets/identity %>
+        <% include fieldsets/username %>
+        <% if (userProfile.role === 'sys_admin') { %>
+        <% include fieldsets/password %>
+        <% include fieldsets/attributes %>
+        <% } %>
+        
+        <nav class="Commands PageCommands">
+          <% if (action === 'new') { %>
+          <button class="Add btn btn-primary" type="submit" class="g-recaptcha"
+              data-sitekey="6LfPp14UAAAAAPRDQrFX3Pa6TiBsjrSwz31mpKw0"
+              data-callback="submitForm" data-action="save">
+            <span>Create</span></button>
+          <% } else { %>
+          <button class="Check btn btn-primary" type="submit"
+              formaction="../<%= user._id %>?_method=PUT" data-action="save">
+            <span>Save</span></button>
+          <% } %>
+          <a class="Cancel btn btn-secondary" href="/users" data-action="cancel">
+            <span>Cancel</span></a>
+        </nav>
+      </form>
+    </main>
+    <footer></footer>
+
+    <script src="/js/users~new.bundle.js"></script>
+    <script type="text/javascript">
+      var labels = {
+        'phrase.confirmCancel': "Are you sure? All changes will be lost."
+      };
+
+      bundle.init();
+      bundle.preselectTZ();
+      bundle.enhancePassword();
+      bundle.highlightSelection();
+
+      // ReCaptcha callback
+      function submitForm(token) {
+        $('form.PageForm').submit();
+      }
+    </script>
+  </body>
+</html>

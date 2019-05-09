@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require('../app'),
+  debug = require('debug')('server:server'),
+  http = require('http'),
+  https = require('https'),
+  mongoose = require('mongoose'),
+  fs = require('fs'),
+
+  /**
+   * Get port from environment and store in Express.
+   */
+  port = normalizePort(process.env.PORT || '80'),
+  securePort = normalizePort(process.env.SECURE_PORT || '443'),
+  dbPort = normalizePort(process.env.DB_PORT || '27017');
+
+/**
+ * Create HTTP and HTTPS servers.
+ */
+let server,
+  secureServer;
+
+_dbInit();
+mongoose.connection.on('connected', _httpInit);
+
+function _dbInit() {
+  const
+    path = [
+      'mongodb://',
+      process.env.DB_HOST, ':',
+      dbPort
+    ].join(''),
+    options = {
+      user: process.env.DB_USER,
+      pass: process.env.DB_PASS,
+      dbName: process.env.DB_NAME,
+      authSource: 'admin',
+      useNewUrlParser: true
+    };
+
+  // Connect to dataset
+  mongoose.connect(
+    path, options,
+    (err) => {
+      if (err) {
+        process.exit(1);
+        throw new Error('Database failed to connect');
+      }
+    }
+  );
+}
+
+function _httpInit(done) {
+  server = http.createServer(app);
+  secureServer = https.createServer({
+    cert: fs.readFileSync('./keys/localhost.crt'),
+    key: fs.readFileSync('./keys/localhost.key')
+  }, app);
+
+  // Listen on provided port, on all network interfaces.
+  app.set('port', port);
+  app.set('securePort', securePort);
+
+  server.listen(port);
+  secureServer.listen(securePort);
+
+  server.on('error', onError);
+  server.on('listening', onListening);
+}
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+  var p = parseInt(val, 10);
+
+  if (isNaN(p)) {
+    // named pipe
+    return val;
+  }
+
+  if (p >= 0) {
+    // port number
+    return p;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+function onError(error) {
+  const bind = typeof port === 'string'
+    ? ['Pipe', port].join(' ')
+    : ['Port', port].join(' ');
+
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error([bind, 'requires elevated privileges'].join(' '));
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error([bind, 'is already in use'].join(' '));
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  var addr = server.address(),
+    bind = typeof addr === 'string'
+      ? ['pipe', addr].join(' ')
+      : ['port', addr.port].join(' ');
+  debug(['Listening on', bind].join(' '));
+}

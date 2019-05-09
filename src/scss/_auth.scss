@@ -1,0 +1,8 @@
+#signin, #signup {
+  #federated > .form-group {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .flex-md-row;
+    @extend .justify-content-center;
+  }
+}

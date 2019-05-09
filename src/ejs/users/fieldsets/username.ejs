@@ -1,0 +1,41 @@
+<fieldset class="Username Module">
+  <legend>Select Username</legend>
+  <ul class="list-group">
+    <li class="list-group-item form-inline p-2 <%= (!user || user.userName === user.contact.email) ? 'active' : null %>" id="emailAsUsername">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input class="form-check-input" type="radio" name="userName" value="email"
+            data-target="#emailAsUsername" data-toggle="radio"
+            <%= (!user || user.userName === user.contact.email) ? "checked" : null %> />
+        </div>
+        <div class="input-group-text">
+          <label class="form-check-label" for="email">
+            <span>Email:</span>
+          </label>
+        </div>
+      </div>
+      <% if (user) account = user.contact.email; %>
+      <input class="form-control" type="email" id="email" name="email"
+        value="<%= account %>" />
+    </div>
+    </li><li class="list-group-item form-inline p-2" id="phoneAsUsername">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input class="form-check-input" type="radio" name="userName" value="phone"
+            data-target="#phoneAsUsername" data-toggle="radio" disabled
+            <%= (user && user.userName === user.contact.phone) ? "checked" : null %> />
+        </div>
+        <div class="input-group-text">
+          <label class="form-check-label" for="phone">
+            <span>Mobile Phone:</span>
+          </label>
+        </div>
+      </div>
+      <input class="form-control" type="tel" id="phone" name="phone"
+        value="<%= (user) ? user.contact.phone : null %>" />
+    </div>
+    </li>
+  </ul>
+</fieldset>

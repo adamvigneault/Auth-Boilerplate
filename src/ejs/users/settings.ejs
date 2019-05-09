@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="settings">
+      <% include ../partials/message %>
+      <div class="PageHead">
+        <h2><%= title %></h2>
+      </div>
+      <section>
+        <ul>
+          <li><a href="/users/edit/<%= userProfile._id %>" title="Update account">
+            Update account</a></li>
+          <li><a href="/auth/reset" title="Reset password">
+            Reset password</a></li>
+          <li><a href="/auth/disable" id="disableAccount" title="Disable account">
+            Disable account</a></li>
+        <ul>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="/js/users~settings.bundle.js"></script>
+    <script type="text/javascript">
+      var labels = {
+        'phrase.userDisable': "Are you sure you want to disable this account?"
+      }
+
+      bundle.init();
+    </script>
+  </body>
+</html>

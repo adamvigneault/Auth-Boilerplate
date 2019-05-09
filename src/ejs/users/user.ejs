@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="user">
+    <% include ../partials/message %>
+
+    <div class="PageHead">
+      <div class="Info">
+        <h2 class="d-inline-block">
+          <% if(user.avatar) { %>
+            <img src="<%= user.avatar %>" class="Avatar" />
+          <% } else { %>
+            <i class="fas fa-user Avatar"></i>
+          <% } %>
+          <%= title %>
+        </h2>
+        <% if (user.occupation) { %>
+        <span class="text-muted text-uppercase text-nowrap" style="font-size: 1em;">
+           : <%= user.occupation %></span>
+        <% } %>
+      </div>
+    </div>
+
+    <%
+      var self = (userProfile.id === user.id);
+      var properNoun = (self)
+        ? 'Your'
+        : user.name.givenName + "'s";
+    %>
+
+    </main>
+    <footer></footer>
+  </body>
+</html>

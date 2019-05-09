@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="reset">
+      <% include ../partials/message %>
+      <div class="PageHead">
+        <h2><%= title %></h2>
+      </div>
+
+      <form class="PageForm" action="/auth/reset" method="POST">
+        <% include ../users/fieldsets/password %>
+
+        <input type="hidden" name="token" value="<%= token %>" />
+
+        <nav class="Commands PageCommands">
+          <button class="Check btn btn-primary" type="submit">
+            <span>Update password<span></button>
+          <a class="Cancel btn btn-secondary" href="/" data-action="cancel">
+            <span>Cancel<span></a>
+        </nav>
+      </form>
+    </main>
+    <footer></footer>
+    <script src="/js/auth~reset.bundle.js"></script>
+    <script type="text/javascript">
+      bundle.init();
+    </script>
+  </body>
+</html>

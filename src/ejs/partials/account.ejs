@@ -1,0 +1,54 @@
+<nav id="accountNav" class="w-300">
+  <% if (locals.userProfile) { %>
+  <div id="accountMenu">
+    <% if (userProfile.avatar) { %>
+    <a class="btn UserAvatar"
+      style="background-image:url(<%= userProfile.avatar %>);"
+      href="<%= userProfile.url %>">
+      <span class="sr-only"><%= userProfile.displayName %>" /></span>
+    </a>
+    <div class="btn-group">
+      <button class="btn dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">
+          Options</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/service/settings">
+          Settings</a>
+        <a class="dropdown-item" href="/auth/signout">
+          Sign Out</a>
+      </div>
+    </div>
+    
+    <% } else { %>
+    <a class="btn" href="<%= userProfile.url %>">
+      <%= userProfile.name.givenName %>
+    </a>
+    <div class="btn-group">
+      <button class="btn dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">
+          User options</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/service/settings">
+          Settings</a>
+        <a class="dropdown-item" href="/auth/signout">
+          Sign out</a>
+      </div>
+    </div>
+
+    <% } %>
+  </div>
+  <% } else { %>
+  <div id="accountMenu" class="btn-group">
+    <a class="nav-item nav-link btn" href="/auth/signin">
+      <span>Sign in</span></a>
+    <a class="nav-item nav-link btn" href="/auth/signup">
+      <span>Sign up</span></a>
+  </div>
+  <% } %>
+</nav>

@@ -1,0 +1,28 @@
+<fieldset class="Identity Module">
+  <legend>Identity</legend>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="givenName">
+        <span>First Name:</span>
+      </label>
+      <input class="form-control" type="text" id="givenName" name="givenName"
+        value="<%= (user) ? user.name.givenName : null %>" required autofocus />
+    </div>
+    <div class="form-group col">
+      <label for="lastName">
+        <span>Last Name:</span>
+      </label>
+      <input class="form-control" type="text" id="familyName" name="familyName"
+        value="<%= (user) ? user.name.familyName : null %>" required />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="timeZone">
+      <span>Timezone:</span>
+    </label>
+    <select class="form-control" id="timeZone" name="timeZone"><% timeZones.forEach(function(tz) { %>
+      <option value="<%= tz %>" <%= (user.timezone === tz) ? 'selected' : null %> >
+        <%= tz %></option>
+    <% }) %></select>
+  </div>
+</fieldset>

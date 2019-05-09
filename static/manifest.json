@@ -1,0 +1,36 @@
+{
+  "short_name": "Hewwn",
+  "name": "Hewwn Projects",
+  "icons": [
+    {
+      "src": "/img/brand/logo-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/img/brand/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/brand/logo-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/img/brand/logo-384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/img/brand/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/projects",
+  "background_color": "#CC6633",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#302C28"
+}

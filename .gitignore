@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+backups
+tmp
+dist/**/*.*
+
+# certs -- RE-ENABLE IGNORE!
+# keys
+
+# misc
+.vscode
+.env

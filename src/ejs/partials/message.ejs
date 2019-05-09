@@ -1,0 +1,13 @@
+<% if (locals.error) { %>
+<div class="Error">
+  <%= error %>
+</div>
+<% } %>
+<% if (locals.message) { %>
+<div class="Message alert alert-dismissible" role="alert">
+  <span><%= message %></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% } %>

@@ -1,0 +1,12 @@
+.git
+.gitignore
+.cache
+.vscode
+
+renewSSL.sh
+
+/src
+/node_modules
+/backups
+
+Dockerfile

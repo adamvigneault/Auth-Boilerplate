@@ -1,0 +1,8 @@
+<a class="UserObject" href="<%= user.url %>">
+  <% if (user.avatar) { %>
+  <img src="<%= user.avatar %>" class="Avatar" />
+  <% } else { %>
+  <i class="fas fa-user Avatar"></i>
+  <% } %>
+  <%= user.displayName %>
+</a>

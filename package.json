@@ -1,0 +1,91 @@
+{
+  "name": "auth_boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm install && npx webpack -p && node ./bin/www"
+  },
+  "author": {
+    "name": "Adam Vigneault",
+    "url": "http://adamvigneault.com"
+  },
+  "description": "An auth boilerplate",
+  "dependencies": {
+    "acl": "^0.4.11",
+    "async": "^2.6.2",
+    "autoprefixer": "^9.5.1",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
+    "clean-webpack-plugin": "^2.0.1",
+    "compression": "^1.7.4",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.4",
+    "copy-webpack-plugin": "^5.0.2",
+    "cors": "^2.8.5",
+    "css-loader": "^2.1.1",
+    "debug": "~2.6.9",
+    "directory-tree": "^2.2.2",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.6.1",
+    "email-templates": "^5.0.5",
+    "express": "^4.16.4",
+    "express-paginate": "^1.0.0",
+    "express-sanitizer": "^1.0.5",
+    "express-session": "^1.16.1",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^3.0.1",
+    "helmet": "^3.16.0",
+    "http-errors": "~1.6.2",
+    "jquery": "^3.4.0",
+    "jquery-chained": "^2.0.0-beta.2",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "method-override": "^2.3.10",
+    "moment-timezone": "^0.5.25",
+    "mongoose": "^5.5.2",
+    "mongoose-diff-history": "^1.6.1",
+    "morgan": "^1.9.1",
+    "node-sass": "^4.11.0",
+    "nodemailer": "^4.7.0",
+    "npm": "^6.9.0",
+    "passport": "^0.4.0",
+    "passport-azure-ad-oauth2": "0.0.4",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-windowslive": "^1.0.2",
+    "popper.js": "^1.15.0",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "sass-loader": "^7.1.0",
+    "validator": "^9.4.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-airbnb-es5": "^1.2.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "maintainers": [
+    {
+      "name": "Adam Vigneault",
+      "email": "self@adamvigneault.com",
+      "url": "http://adamvigneault.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamvigneault/MakerSightsHW.git"
+  }
+}

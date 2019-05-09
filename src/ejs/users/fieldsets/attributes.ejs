@@ -1,0 +1,24 @@
+<fieldset class="Role Module">
+  <legend>Attributes</legend>
+  <div class="form-group">
+    <label for="role">
+      <span>Role:</span>
+    </label>
+    <select class="form-control" id="role" name="role" required>
+      <% roles.forEach(function (role) {
+        var selected = (user.role && user.role === role.val)
+          ? "selected" : null; %>
+      <option value="<%= role.val %>" <%= selected %> >
+        <%= role.label %>
+      </option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form-group form-check d-flex align-items-center">
+    <input class="form-check-input mt-0" type="checkbox" id="active" name="active"
+      <%= (user && !user.active) ? null : "checked" %> />
+    <label class="form-check-label" for="active">
+      <span>Active account</span>
+    </label>
+  </div>
+</fieldset>

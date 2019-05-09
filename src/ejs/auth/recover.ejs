@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+    </header>
+    <main id="recover">
+    <% include ../partials/message %>
+    <div class="PageHead">
+      <h2><%= title %></h2>
+    </div>
+
+    <form class="PageForm" action="/auth/recover" method="POST">
+      <fieldset class="Module">
+      <div class="form-group">
+        <label for="username">
+          <span>Email:</span>
+        </label>
+        <input class="form-control" id="username" name="username" />
+      </div>
+      </fieldset>
+
+      <nav class="Commands PageCommands">
+        <button class="Check btn btn-primary" type="submit">
+          <span>Reset password</span></button>
+        <a class="btn btn-secondary" href="/" data-action="cancel">
+          <span>Cancel</span></a>
+      </nav>
+    </form>
+    </main>
+    <footer></footer>
+    <script src="/js/auth~reset.bundle.js"></script>
+    <script type="text/javascript">
+      bundle.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+#userIndex {
+  tr {
+    &.Active span.Status {
+      color: green;
+    }
+    &.Inactive span.Status {
+      color: red;
+    }
+  }
+  
+}

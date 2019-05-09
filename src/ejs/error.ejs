@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <main id="appError">
+      <div class="PageHead">
+        <h2><%= message %></h2>
+      </div>
+
+      <section>
+        <h2><%= error.status %></h2>
+        <p><%= error.stack %></p>
+      </section>
+    </main>
+  </body>
+</html>

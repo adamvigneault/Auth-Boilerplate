@@ -1,0 +1,23 @@
+<nav id="globalNav">
+  <div class="navbar-header">
+    <h1><a href="/">MakerSights HW</a></h1>
+  </div>
+
+  <% if (locals.userProfile) { %>
+  <div id="globalMenu">
+    <ul class="navbar-nav">
+      <% 
+      if (userProfile.role === 'sys_admin') { %>
+      <li class="nav-item">
+        <div class="GlobalSubMenu">
+          <span>
+            <a href="/users" class="nav-link">
+              Users</a>
+          </span>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+<% } %>
+</nav>

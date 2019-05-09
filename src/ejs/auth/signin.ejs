@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/masthead %>
+      <% include ../partials/account %>
+    </header>
+    <main id="signin">
+    <% include ../partials/message %>
+
+    <% if (keyPrompt) { %>
+    <form id="keyPrompt" class="modal fade" role="dialog" action="/auth/verify" method="GET">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            Enter your key...
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col">
+                  <p class="form-text text-muted text-center">
+                    <small>We sent a verification key to:<%= account %></small></p>
+                  <label class="sr-only" for="groupA">Enter key:</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <input class="form-control KeyGroup"
+                    id="groupA" name="groupA" type="text" maxlength="4" size="4" />
+                </div>
+                <div class="col">
+                  <input class="form-control KeyGroup"
+                    id="groupB" name="groupB" type="text" maxlength="4" size="4" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer Commands">
+            <button class="Check btn btn-primary">
+              <span>Verify</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <% } %>
+
+    <div class="PageHead">
+      <h2><%= title %></h2>
+    </div>
+
+    <form class="PageForm" action="./signin" method="POST">
+      <% include ./fieldsets/federated %>
+
+      <hr />
+
+      <fieldset id="local" class="Module">
+        <legend>
+          <span>...or</span>
+          Sign In
+        </legend>
+        <div class="form-group">
+          <label for="username">
+            <span>Email:</span>
+          </label>
+          <input class="form-control" type="text"
+            id="username" name="username" autofocus />
+        </div>
+        <div class="form-group">
+          <label for="password">
+            <span>Password:</span>
+          </label>
+          <input class="form-control" type="password"
+            id="password" name="password" />
+          <small class="form-text"><a href="/auth/recover">
+            Forgot password?</a></small>
+        </div>
+      </fieldset>
+
+      <nav class="Commands PageCommands">
+        <button class="Check btn btn-primary" type="submit">
+          <span>Sign In</span></button>
+        <a class="Cancel btn btn-secondary" href="https://hewwn.com">
+          <span>Cancel</span></a>
+      </nav>
+    </form>
+    
+    </main>
+    <footer></footer>
+    <script src="/js/auth~signin.bundle.js"></script>
+    <script type="text/javascript">
+      <% if (keyPrompt) { %>bundle.promptKey();<% } %>
+    </script>
+  </body>
+</html>

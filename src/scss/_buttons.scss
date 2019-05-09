@@ -1,0 +1,64 @@
+.OAUTHbtn {
+  @extend .my-1;
+  @extend .mx-auto;
+  @extend .mx-md-1;
+
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  height: 41px;
+  font-size: 14px;
+  min-width: 12.5rem;
+  text-align: left;
+
+  &:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn.Google {
+  @extend .mx-2;
+  @extend .OAUTHbtn;
+
+  background-color: #4285F4;
+  padding: 0 8px 0 0;
+  color: #FFF;
+  font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  border-radius: 2px;
+
+  &:before {
+    background: url('/img/oauth/btn_google_dark_normal_ios.svg');
+    background-size: 40px 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 40px; height: 40px;
+    margin-right: 2px;
+  }
+  &:hover {
+    color: #FFF;
+  }
+}
+.btn.Microsoft {
+  @extend .mx-2;
+  @extend .OAUTHbtn;
+
+  background-color: #FFF;
+  padding: 0 14px 0 0;
+  color: #5E5E5E;
+  border: 1px #8C8C8C solid;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+
+  &:before {
+    background: url('/img/oauth/MS-SymbolLockup.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 22px 22px;
+    width: 40px; height: 40px;
+  }
+}
