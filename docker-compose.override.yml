@@ -2,13 +2,13 @@ version: "3"
 services:
   app:
     ports:
-      - '80:80'
-      - '443:443'
+      - 80:80
+      - 443:443
   mongo:
     volumes:
-      - makersights:/data/db
+      - authDB:/data/db
     ports:
-      - "27017:27017"
+      - 27017:27017
 volumes:
-  makersights:
-    external: true
+  authDB:
+    external: false

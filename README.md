@@ -1,5 +1,3 @@
-# MakerSightsHW
-
 ===== Requirements =====
 
 Docker.
@@ -7,11 +5,12 @@ Docker.
 ===== Install and run =====
 1. Clone the repo
 2. Create a .env file at the root of the project modeled after '.env.default.' Fill out the requried environment variables, including key/secrets for ReCaptcha, the Google API and Microsoft API (if you intend to use it for the purposes of this test), and an admin email address. This latter variable is EXTREMELY IMPORTANT, as it will be your bootstrap into the sys_admin role.
-3. Create a local volume for the database to reside in: "docker volume create makersights"
+3. Create a local volume for the database to reside in: "docker volume create authDB"
 4. Start the application at https://localhost by running: "docker-compose up". Wait for server to download and initialize.
 5. Navigate to the running app, and click "Sign up." Create a new user with an email address that matches the one you originally configured in the .ENV file. This should automatically authenticate.
 
-**NOTE: Make sure to assign an authorized origin to your Google/Microsoft/ReCaptcha API keys: https:localhost 
+**NOTE: Make sure to assign an authorized origin to your Google/Microsoft/ReCaptcha API keys: https:localhost
+
 **NOTE: I've included a self-signed SSL cert in the /keys directory
 
 ===== Database =====
