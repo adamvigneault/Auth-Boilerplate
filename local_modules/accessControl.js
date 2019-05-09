@@ -44,7 +44,7 @@ function middleware(numPathComponents = null, userId, permissions = null) {
               )(req, res, next));
             });
           } catch (err) {
-            next(createError(err));
+            next(createError(500, err.message));
             // ACL middleware not connected.
           }
         });

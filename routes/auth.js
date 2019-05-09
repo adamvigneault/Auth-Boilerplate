@@ -355,7 +355,7 @@ router.route('/recover')
         ].join(''));
 
         if (err) {
-          next(createError('500', err));
+          next(createError('500', err.message));
         } else {
           authMessage.send({
             template: 'recoverUser/en',
@@ -369,7 +369,10 @@ router.route('/recover')
             .then(() => {
               req.flash(
                 'message',
-                'An email has been sent to you with further instructions. You may close this window.'
+                [
+                  'An email has been sent to you with further instructions. ',
+                  'You may close this window.'
+                ].join('')
               );
               res.redirect('/auth/recover');
             })

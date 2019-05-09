@@ -12,7 +12,7 @@ router.get('/', enhanceRes(), async (req, res) => {
         title: 'Auth boilerplate',
       });
     } else {
-      throw Error('Unauthenticated');
+      throw Error('Unauthenticated'); // Redirect to sign in. See catch.
     }
   } catch (err) {
     req.session.returnTo = req.baseUrl;

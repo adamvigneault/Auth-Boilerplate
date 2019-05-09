@@ -13,7 +13,7 @@ const nodemailer = require('nodemailer'),
 
   authMessage = new Email({
     message: {
-      from: 'auth@hewwn.com'
+      from: process.env.MAIL_USER
     },
     views: {
       root: path.join(__dirname, '../src/ejs/email'),

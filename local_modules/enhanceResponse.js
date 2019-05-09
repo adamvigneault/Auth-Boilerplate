@@ -1,5 +1,5 @@
-const { waterfall } = require('async'),
-  { getObj: getAcl } = require('./accessControl');
+const { waterfall } = require('async');
+//  { getObj: getAcl } = require('./accessControl');
 
 // Enhance response object
 function enhanceResponse() {
