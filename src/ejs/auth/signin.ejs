@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
   </head>
   <body>
     <header>
-      <% include ../partials/masthead %>
-      <% include ../partials/account %>
+      <%- include('../partials/masthead') %>
+      <%- include('../partials/account') %>
     </header>
     <main id="signin">
-    <% include ../partials/message %>
+    <%- include('../partials/message') %>
 
     <% if (keyPrompt) { %>
     <form id="keyPrompt" class="modal fade" role="dialog" action="/auth/verify" method="GET">
@@ -54,7 +54,7 @@
     </div>
 
     <form class="PageForm" action="./signin" method="POST">
-      <% include ./fieldsets/federated %>
+      <%- include('./fieldsets/federated') %>
 
       <hr />
 

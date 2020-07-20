@@ -1,5 +1,5 @@
 const path = require('path'),
-  CleanWebpackPlugin = require('clean-webpack-plugin'),
+  { CleanWebpackPlugin } = require('clean-webpack-plugin'),
   CopyPlugin = require('copy-webpack-plugin'),
   webpack = require('webpack'),
   dirTree = require('directory-tree');
@@ -53,10 +53,12 @@ module.exports = {
       /moment[/\\]locale$/,
       /(en|es)(?!-)/
     ),
-    new CopyPlugin([{
-      from: path.resolve(__dirname, 'static'),
-      to: ''
-    }])
+    new CopyPlugin({
+      patterns: [{
+        from: path.resolve(__dirname, 'static'),
+        to: ''
+      }]
+    })
   ],
   optimization: {
     splitChunks: {

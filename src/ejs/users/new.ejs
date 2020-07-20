@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
     
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
   </head>
   <body>
     <header>
-      <% include ../partials/masthead %>
-      <% include ../partials/account %>
+      <%- include('../partials/masthead') %>
+      <%- include('../partials/account') %>
     </header>
     <main id="userNew">
-      <% include ../partials/message %>
+      <%- include('../partials/message') %>
       <div class="PageHead">
         <h2><%= title %></h2>
       </div>
 
       <form class="PageForm" action="<%= './' + action %>" method="post">
-        <% include fieldsets/identity %>
-        <% include fieldsets/username %>
+        <%- include('fieldsets/identity') %>
+        <%- include('fieldsets/username') %>
         <% if (userProfile.role === 'sys_admin') { %>
-        <% include fieldsets/password %>
-        <% include fieldsets/attributes %>
+        <%- include('fieldsets/password') %>
+        <%- include('fieldsets/attributes') %>
         <% } %>
         
         <nav class="Commands PageCommands">

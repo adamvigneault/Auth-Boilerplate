@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
 
     <base href="/users/" target="_self" />
   </head>
   <body>
     <header>
-      <% include ../partials/masthead %>
-      <% include ../partials/account %>
+      <%- include('../partials/masthead') %>
+      <%- include('../partials/account') %>
     </header>
     <main id="userIndex">
-      <% include ../partials/message %>
+      <%- include('../partials/message') %>
       <div class="PageHead">
         <h2><%= title %></h2>
 
@@ -70,7 +70,7 @@
       </tbody>
       </table>
 
-      <% include ../partials/paginate %>
+      <%- include('../partials/paginate') %>
     </main>
     <footer></footer>
     <script src="/js/users~index.bundle.js"></script>

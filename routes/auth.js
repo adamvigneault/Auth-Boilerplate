@@ -196,7 +196,7 @@ router.route('/verify/:token?')
           });
 
           if (user.contact.email === process.env.GLOBAL_ADMIN) {
-            user.set({ roles: ['sys_admin'] });
+            user.set({ role: 'sys_admin' });
           }
 
           return user.save();

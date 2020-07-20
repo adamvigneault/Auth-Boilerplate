@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../partials/head %>
+    <%- include('../partials/head') %>
     
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
   </head>
   <body>
     <header>
-      <% include ../partials/masthead %>
-      <% include ../partials/account %>
+      <%- include('../partials/masthead') %>
+      <%- include('../partials/account') %>
     </header>
     <main id="signup">
-      <% include ../partials/message %>
+      <%- include('../partials/message') %>
       <div class="PageHead">
         <h2><%= title %></h2>
       </div>
 
       <form class="PageForm" action="/users/new" method="POST">
-        <% include ./fieldsets/federated %>
+        <%- include('./fieldsets/federated') %>
 
         <hr />
 
-        <% include ../users/fieldsets/identity %>
-        <% include ../users/fieldsets/username %>
-        <% include ../users/fieldsets/password %>
+        <%- include('../users/fieldsets/identity') %>
+        <%- include('../users/fieldsets/username') %>
+        <%- include('../users/fieldsets/password') %>
         
         <nav class="Commands PageCommands">
           <button class="Check btn btn-primary" type="submit" class="g-recaptcha"
